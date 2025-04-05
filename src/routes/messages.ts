@@ -29,7 +29,7 @@ router.post("/personalized-message", async (req: Request, res: Response): Promis
     }
 
    
-    const prompt = `Generate a personalized outreach message for ${name}, a ${job_title} at ${company} in ${location}. Summary: ${summary}. Keep it short and simple and i am hiring manager work at outflo.`;
+    const prompt = `Generate a personalized outreach message for ${name}, a ${job_title} at ${company} in ${location}. Summary: ${summary}. Keep it short and simple and i am Tushar Singhal founder of outflo.`;
 
     
     const model = genAI.getGenerativeModel({ model: "gemini-1.5-pro" });
