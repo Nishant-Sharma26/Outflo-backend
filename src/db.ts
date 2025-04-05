@@ -1,8 +1,12 @@
 import mongoose from "mongoose";
+import dotenv from "dotenv";
+
+dotenv.config();
 
 const connectDB = async () => {
+  const password = process.env.MONGODB_PASSWORD;
   try {
-    await mongoose.connect("mongodb+srv://Nishant:Nishu%40_sharma26@cluster0.udeyt.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0");
+    await mongoose.connect(`mongodb+srv://Nishant:${password}@cluster0.udeyt.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`);
     console.log("MongoDB connected");
   } catch (error) {
     console.error("MongoDB connection error:", error);

@@ -11,9 +11,6 @@ router.post("/personalized-message", async (req: Request, res: Response): Promis
   let { name, job_title, company, location, summary } = req.body;
 
   try {
-    console.log("Starting request...");
-
-    
     const missingFields = Object.entries({ name, job_title, company, location, summary })
       .filter(([_, value]) => !value)
       .map(([key]) => key);
@@ -34,7 +31,7 @@ router.post("/personalized-message", async (req: Request, res: Response): Promis
    
     const prompt = `Generate a personalized outreach message for ${name}, a ${job_title} at ${company} in ${location}. Summary: ${summary}. Keep it short and simple and i am hiring manager work at outflo.`;
 
-    console.log("Generating message with Gemini...");
+    
     const model = genAI.getGenerativeModel({ model: "gemini-1.5-pro" });
     const result = await model.generateContent(prompt);
 
@@ -43,12 +40,12 @@ router.post("/personalized-message", async (req: Request, res: Response): Promis
     }
 
     const message = result.response.text().trim();
-    console.log("Generated message:", message);
+   
 
     res.json({ name, job_title, company, location, summary, message });
   } catch (error: unknown) {
     const errorMessage = error instanceof Error ? error.message : String(error);
-    console.error("Error in endpoint:", errorMessage);
+    
 
     let errorType = "Failed to generate message";
     if (errorMessage.includes("Gemini")) {

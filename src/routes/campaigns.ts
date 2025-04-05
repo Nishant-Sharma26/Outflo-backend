@@ -3,7 +3,7 @@ import Campaign from "../models/Campaign";
 
 const router = express.Router();
 
-// GET /campaigns
+
 router.get("/", async (req: Request, res: Response): Promise<void> => {
   try {
     const campaigns = await Campaign.find({ status: { $ne: "DELETED" } });
@@ -13,7 +13,7 @@ router.get("/", async (req: Request, res: Response): Promise<void> => {
   }
 });
 
-// GET /campaigns/:id
+
 router.get("/:id", async (req: Request<{ id: string }>, res: Response): Promise<void> => {
   try {
     const campaign = await Campaign.findById(req.params.id);
@@ -27,7 +27,7 @@ router.get("/:id", async (req: Request<{ id: string }>, res: Response): Promise<
   }
 });
 
-// POST /campaigns
+
 router.post("/", async (req: Request, res: Response): Promise<void> => {
   try {
     const campaign = new Campaign(req.body);
@@ -38,7 +38,7 @@ router.post("/", async (req: Request, res: Response): Promise<void> => {
   }
 });
 
-// PUT /campaigns/:id
+
 router.put("/:id", async (req: Request<{ id: string }>, res: Response): Promise<void> => {
   try {
     const campaign = await Campaign.findByIdAndUpdate(req.params.id, req.body, { new: true });
@@ -54,7 +54,7 @@ router.put("/:id", async (req: Request<{ id: string }>, res: Response): Promise<
   }
 });
 
-// DELETE /campaigns/:id
+
 router.delete("/:id", async (req: Request<{ id: string }>, res: Response): Promise<void> => {
   try {
     const campaign = await Campaign.findByIdAndUpdate(

@@ -8,7 +8,7 @@ dotenv.config();
 const app = express();
 
 app.use(express.json());
-app.use(cors({ origin: "*" })); // Allow all origins for testing
+app.use(cors({ origin: "*" })); 
 app.use(router);
 
 const PORT = process.env.PORT || 3000;
