@@ -105,7 +105,7 @@ router.post("/personalized-message", async (req: Request, res: Response): Promis
       throw new Error("GEMINI_API_KEY is not set in .env file.");
     }
 
-    const prompt = `Generate a personalized outreach message for ${profileData.name}, a ${profileData.job_title} at company name ${profileData.company} and his location is ${profileData.location} the summary is ${profileData.summary}. Keep it short and simple if any field is missed manage it and I am Tushar Singhal founder of Outflo.`;
+    const prompt = `Generate a personalized outreach message for ${profileData.name}, a ${profileData.job_title} at company name ${profileData.company} and his location is ${profileData.location} the summary is ${profileData.summary}. Keep it short and simple if any field is missed manage it and I am Nishant sharma.`;
 
     const model = genAI.getGenerativeModel({ model: "gemini-1.5-pro" });
     const result = await model.generateContent(prompt);
