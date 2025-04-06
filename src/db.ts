@@ -7,7 +7,7 @@ const connectDB = async () => {
   const password = process.env.MONGODB_PASSWORD;
   try {
     await mongoose.connect(`mongodb+srv://Nishant:${password}@cluster0.udeyt.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`);
-    console.log("MongoDB connected");
+    
   } catch (error) {
     console.error("MongoDB connection error:", error);
   }
